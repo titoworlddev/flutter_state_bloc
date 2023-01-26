@@ -1,16 +1,23 @@
-# flutter_state_bloc
+# Flutter state BLoC
 
-A new Flutter project.
+This is a project oriented to the practice and demonstration of the use of pattern bloc with flutter and dart. Simulates an application that adds a new user and updates its values.
 
-## Getting Started
+It is done by using the flutter_bloc package from pub.dev which makes use of the bloc package in its dependencies.
 
-This project is a starting point for a Flutter application.
+The app does things like:
 
-A few resources to get you started if this is your first Flutter project:
+- Generate a new state
+- Update that state (without mutating it)
+- Add a new user
+- Change username
+- Change user age
+- Add professions to the user
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 16px">
+  <img width="150" src="screenshot1.png" alt="Screenshot"/>
+  <img width="150" src="screenshot2.png" alt="Screenshot"/>
+  <img width="150" src="screenshot3.png" alt="Screenshot"/>
+  <img width="150" src="screenshot4.png" alt="Screenshot"/>
+  <img width="150" src="screenshot5.png" alt="Screenshot"/>
+  <img width="150" src="screenshot6.png" alt="Screenshot"/>
+</div>
