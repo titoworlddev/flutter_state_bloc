@@ -1,15 +1,11 @@
-
-
 class User {
-  
-  String? nombre;
-  int? edad;
-  List<String>? profesiones;
+  String nombre;
+  int edad;
+  List<String> profesiones;
 
-  User({ 
-    this.nombre, 
-    this.edad, 
-    this.profesiones 
+  User({
+    required this.nombre,
+    required this.edad,
+    required this.profesiones,
   });
-
 }

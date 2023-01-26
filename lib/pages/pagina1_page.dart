@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:flutter_state_bloc/bloc/user/user_bloc.dart';
+import 'package:flutter_state_bloc/models/user.dart';
 
 class Pagina1Page extends StatelessWidget {
   const Pagina1Page({Key? key}) : super(key: key);
@@ -18,7 +19,7 @@ class Pagina1Page extends StatelessWidget {
         // buildWhen: ,
         builder: (context, state) {
           return state.existUser
-              ? const InformacionUsuario()
+              ? InformacionUsuario(user: state.user!)
               : const Center(
                   child: Text('No hay usuario seleccionado'),
                 );
@@ -32,7 +33,12 @@ class Pagina1Page extends StatelessWidget {
 }
 
 class InformacionUsuario extends StatelessWidget {
-  const InformacionUsuario({Key? key}) : super(key: key);
+  final User user;
+
+  const InformacionUsuario({
+    Key? key,
+    required this.user,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -42,18 +48,23 @@ class InformacionUsuario extends StatelessWidget {
       padding: const EdgeInsets.all(20.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: const [
-          Text('General',
+        children: [
+          const Text('General',
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-          Divider(),
-          ListTile(title: Text('Nombre: ')),
-          ListTile(title: Text('Edad: ')),
-          Text('Profesiones',
+          const Divider(),
+          ListTile(title: Text('Nombre: ${user.nombre}')),
+          ListTile(title: Text('Edad: ${user.edad}')),
+          const Text('Profesiones',
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-          Divider(),
-          ListTile(title: Text('Profesion 1')),
-          ListTile(title: Text('Profesion 1')),
-          ListTile(title: Text('Profesion 1')),
+          const Divider(),
+          ...user.profesiones
+              .map((profesion) => ListTile(title: Text(profesion)))
+
+          // Otra forma de hacer lo mismo que el codigo de arriba
+          // ...List.generate(
+          //   user.profesiones!.length,
+          //   (index) => ListTile(title: Text(user.profesiones![index])),
+          // )
         ],
       ),
     );
