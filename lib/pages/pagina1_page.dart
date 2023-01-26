@@ -57,10 +57,16 @@ class InformacionUsuario extends StatelessWidget {
           const Text('Profesiones',
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
           const Divider(),
-          ...user.profesiones
-              .map((profesion) => ListTile(title: Text(profesion)))
+          Expanded(
+            child: ListView(
+              children: [
+                ...user.profesiones
+                    .map((profesion) => ListTile(title: Text(profesion)))
+              ],
+            ),
+          ),
 
-          // Otra forma de hacer lo mismo que el codigo de arriba
+          // Otra forma de hacer lo mismo que el codigo de arriba para agregar cada profesion seria
           // ...List.generate(
           //   user.profesiones!.length,
           //   (index) => ListTile(title: Text(user.profesiones![index])),
