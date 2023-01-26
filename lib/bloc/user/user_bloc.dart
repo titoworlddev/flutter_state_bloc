@@ -13,6 +13,12 @@ class UserBloc extends Bloc<UserEvent, UserState> {
     // que se le indique y entonces en base a el resultado se emite
     // un nuevo estado con la funcion emit
     on<ActivateUser>((event, emit) => emit(UserSetState(event.user)));
+
+    // Lo que hacemos es volver al estado inicial pero tambien se podria
+    // hacer una nueva clase en user_state que genere un nuevo estado vacio.
+    // o para mantener algun valor o lo que quieras.
+    on<DeleteUser>((event, emit) => emit(const UserInitialState()));
+
     on<ChangeUserAge>((event, emit) {
       // Tengo acceso al state porque estoy extendiendo de bloc y ahi hago acceso al UserState
       // se podria hacer asi

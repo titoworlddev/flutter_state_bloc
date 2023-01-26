@@ -12,6 +12,14 @@ class Pagina1Page extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Pagina 1'),
+        actions: [
+          IconButton(
+            onPressed: () {
+              BlocProvider.of<UserBloc>(context).add(DeleteUser());
+            },
+            icon: const Icon(Icons.delete_outline_rounded),
+          )
+        ],
       ),
       body: BlocBuilder<UserBloc, UserState>(
         // Se puede usar el buildWhen para que solo se reconstruya
