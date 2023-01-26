@@ -16,3 +16,11 @@ abstract class UserState {
 class UserInitialState extends UserState {
   const UserInitialState() : super(existUser: false, user: null);
 }
+
+// Cuando se activa un usuario se crea un nuevo estado
+// que es el estado de la clase UserState el cual especificamos aqui
+class UserSetState extends UserState {
+  final User newUser;
+
+  const UserSetState(this.newUser) : super(existUser: true, user: newUser);
+}

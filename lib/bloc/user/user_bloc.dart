@@ -11,6 +11,6 @@ class UserBloc extends Bloc<UserEvent, UserState> {
     // Cuando se llama al evento se recibe aqui y se hace la funcion
     // que se le indique y entonces en base a el resultado se emite
     // un nuevo estado con la funcion emit
-    on<ActivateUser>((event, emit) {});
+    on<ActivateUser>((event, emit) => emit(UserSetState(event.user)));
   }
 }
